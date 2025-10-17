@@ -16,7 +16,9 @@ public class Telemetry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    private String service;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="service_id", nullable=false)
+    private APIService service;
     private String endpoint;
     private String method;
     private int status;
